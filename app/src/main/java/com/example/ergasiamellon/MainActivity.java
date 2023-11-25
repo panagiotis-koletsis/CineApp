@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(view);
 
         setSupportActionBar(findViewById(R.id.toolbar));
-        setTitle("Counter app");
+        setTitle("Cine App");
 
     }
 }
