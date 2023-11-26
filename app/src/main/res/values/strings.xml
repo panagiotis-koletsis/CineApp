@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">ergasiaMellon</string>
+    <string name="app_name">CineApp</string>
+    <string name="cartBox">cart</string>
+    <string name="favBox">favorites</string>
 </resources>
