@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CineApp</string>
+    <string name="cartBox">καλάθι</string>
+    <string name="favBox">αγαπημένα</string>
+</resources>
