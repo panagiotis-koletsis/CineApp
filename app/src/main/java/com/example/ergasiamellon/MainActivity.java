@@ -23,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(findViewById(R.id.toolbar));
         setTitle("Cine App");
 
+        GetData getData = new GetData();
+        getData.execute();
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
