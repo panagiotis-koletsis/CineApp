@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.ergasiamellon.databinding.ActivityMainBinding;
 
@@ -18,13 +20,14 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SelectListener{
 
     private static String JSON_URL = "https://movies-sizhfvf6la-uc.a.run.app/";
 
@@ -53,6 +56,16 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
+
+    @Override
+    public void onTimeClicked(Movie movie) {
+        Toast.makeText(this,movie.getTitle(),Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, FullMoviePage.class);
+        intent.putExtra("movie",movie);
+        startActivity(intent);
+
+    }
+
 
     public class GetData extends AsyncTask<String,String,String> {
         //RecyclerView recyclerView;
@@ -125,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private  void putDataIntoRecyclerView(List<Movie> movieList){
-        Adaptery adaptery = new Adaptery(this,movieList);
+        Adaptery adaptery = new Adaptery(this,movieList,this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adaptery);
     }

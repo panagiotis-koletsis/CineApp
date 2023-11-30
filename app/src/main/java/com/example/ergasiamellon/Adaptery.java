@@ -16,10 +16,12 @@ public class Adaptery extends RecyclerView.Adapter<MyMovieHolderList> {
 
     private Context mContext;
     private List<Movie> movieList;
+    private SelectListener listener;
 
-    public Adaptery(Context mContext, List<Movie> movieList) {
+    public Adaptery(Context mContext, List<Movie> movieList,SelectListener listener) {
         this.mContext = mContext;
         this.movieList = movieList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -41,6 +43,22 @@ public class Adaptery extends RecyclerView.Adapter<MyMovieHolderList> {
         Glide.with(mContext)
                 .load(movieList.get(position).getImg_url())
                 .into(holder.image_view);
+
+
+        holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onTimeClicked(movieList.get(position));
+
+            }
+        });
+//        holder.cardView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                listener.onTimeClicked(movieList.get(position));
+//            }
+//        });
+
     }
 
     @Override

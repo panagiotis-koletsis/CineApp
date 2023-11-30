@@ -1,6 +1,8 @@
 package com.example.ergasiamellon;
 
-public class Movie {
+import java.io.Serializable;
+
+public class Movie implements Serializable {
     private int id;
     private String title;
     private String img_url;
