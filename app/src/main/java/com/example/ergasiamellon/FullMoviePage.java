@@ -17,14 +17,15 @@ public class FullMoviePage extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movie_item_full);
+        //getting movie from intent
         Movie movie = (Movie) getIntent().getSerializableExtra("movie");
-
+        //binding xml element
         binding = MovieItemFullBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(findViewById(R.id.toolbar));
 
-
+        //populating elements with the movie
         binding.title.setText(movie.getTitle());
         binding.movieRatingBar.setRating(movie.getRating());
         binding.textLength.setText(Integer.toString(movie.getDuration()));
@@ -34,9 +35,8 @@ public class FullMoviePage extends AppCompatActivity {
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                FullMoviePageFragment bottomSheetFragment = new FullMoviePageFragment();
-//                bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
-
+                //adding a fragment for the bottom sheet ticket selector
+                //also we pass the movie to it
                 FullMoviePageFragment bottomSheetFragment = FullMoviePageFragment.newInstance(movie);
                 bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
 
@@ -47,6 +47,7 @@ public class FullMoviePage extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        //adding icons on the toolbar
         getMenuInflater().inflate(R.menu.full_movie_view_menu, menu);
         return true;
     }

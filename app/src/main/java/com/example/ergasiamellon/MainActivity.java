@@ -39,12 +39,15 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
+        //binding objects
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
 
+        //set the toolbar visible
         setSupportActionBar(findViewById(R.id.toolbar));
         setTitle("Cine App");
+
 
         recyclerView = findViewById(R.id.recyclerView);
         GetData getData = new GetData();
@@ -53,14 +56,18 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        //connecting main_menu icons with the toolbar
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
     @Override
     public void onTimeClicked(Movie movie) {
-        Toast.makeText(this,movie.getTitle(),Toast.LENGTH_SHORT).show();
+        //misspelled should be onItemClicked
+        //Toast.makeText(this,movie.getTitle(),Toast.LENGTH_SHORT).show();
+        //Starting new activity for the full movie page
         Intent intent = new Intent(this, FullMoviePage.class);
+        //adding a serializable movie to pass to the ne activity
         intent.putExtra("movie",movie);
         startActivity(intent);
 
@@ -68,13 +75,10 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
 
 
     public class GetData extends AsyncTask<String,String,String> {
-        //RecyclerView recyclerView;
-        //List<Movie> moviesList =  new ArrayList<>();
-//        private static String JSON_URL = "https://movies-sizhfvf6la-uc.a.run.app/";
-        //current is the Json movies file
+
         @Override
         protected String doInBackground(String... strings) {
-
+            //fetching the url as a string stores to current
 
             String current = "";
             try{
@@ -113,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
 
         @Override
         protected void onPostExecute(String s) {
+            //gets each json string and converts it to Movie object ,add it to the arraylist
             try{
                 JSONObject jsonObject = new JSONObject(s);
                 JSONArray jsonArray = jsonObject.getJSONArray("movies");

@@ -2,6 +2,7 @@ package com.example.ergasiamellon;
 
 import java.io.Serializable;
 
+//class for movie its serializable for passing the movie through activities and fragments
 public class Movie implements Serializable {
     private int id;
     private String title;

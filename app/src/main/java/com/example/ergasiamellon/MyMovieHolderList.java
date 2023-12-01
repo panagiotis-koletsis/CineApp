@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ergasiamellon.databinding.MovieItemListBinding;
 
+//this class is for the data that appear on the initial recyclerView
 public class MyMovieHolderList extends RecyclerView.ViewHolder{
 
     ImageView image_view;
@@ -19,7 +20,6 @@ public class MyMovieHolderList extends RecyclerView.ViewHolder{
     TextView text_length;
     RatingBar movie_rating_bar;
 
-    //public CardView cardView;
     public ConstraintLayout constraintLayout;
 
     public MyMovieHolderList(@NonNull View itemView) {
@@ -29,6 +29,5 @@ public class MyMovieHolderList extends RecyclerView.ViewHolder{
         movie_rating_bar = itemView.findViewById(R.id.movie_rating_bar);
         image_view = itemView.findViewById(R.id.image_view);
         constraintLayout = itemView.findViewById(R.id.main_constraint);
-        //cardView = itemView.findViewById(R.id.main_container);
     }
 }

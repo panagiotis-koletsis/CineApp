@@ -27,6 +27,7 @@ public class Adaptery extends RecyclerView.Adapter<MyMovieHolderList> {
     @NonNull
     @Override
     public MyMovieHolderList onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //getting movie item list xml connects it to MyMovieHolderList class
         View v;
         LayoutInflater inflater = LayoutInflater.from(mContext);
         v = inflater.inflate(R.layout.movie_item_list,parent,false);
@@ -35,30 +36,23 @@ public class Adaptery extends RecyclerView.Adapter<MyMovieHolderList> {
 
     @Override
     public void onBindViewHolder(@NonNull MyMovieHolderList holder, int position) {
+        //populate xml elements
         holder.title.setText(movieList.get(position).getTitle());
-        //holder.text_length.setText(movieList.get(position).getDuration());
         holder.text_length.setText(Integer.toString(movieList.get(position).getDuration()));
         holder.movie_rating_bar.setRating(movieList.get(position).getRating());
 
+        //using glide to fetch image from url
         Glide.with(mContext)
                 .load(movieList.get(position).getImg_url())
                 .into(holder.image_view);
 
-
+        //adding event listener
         holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 listener.onTimeClicked(movieList.get(position));
-
             }
         });
-//        holder.cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                listener.onTimeClicked(movieList.get(position));
-//            }
-//        });
-
     }
 
     @Override

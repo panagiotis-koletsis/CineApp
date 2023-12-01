@@ -31,9 +31,12 @@ public class FullMoviePageFragment extends BottomSheetDialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        //setting xml
         View view = inflater.inflate(R.layout.full_movie_page_fragment_button, container, false);
+        //getting movie
         Movie movie = (Movie) getArguments().getSerializable("movie");
 
+        //find the elements
         TextView textViewTitle = view.findViewById(R.id.textViewTitle);
         textViewTitle.setText(movie.getTitle());
 
@@ -43,19 +46,23 @@ public class FullMoviePageFragment extends BottomSheetDialogFragment {
         TextView textViewNumber = view.findViewById(R.id.textViewNumber);
 
         Button buttonIncr = view.findViewById(R.id.buttonInc);
+        //on click button increase
         buttonIncr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //quantity
                 int x = Integer.parseInt(String.valueOf(textViewNumber.getText()));
                 x++;
                 textViewNumber.setText(String.valueOf(x));
 
+                //price
                 double y = Double.parseDouble(String.valueOf(textViewTotal.getText()));
                 y=y+movie.getTicket_price();
                 textViewTotal.setText(String.valueOf(y));
             }
         });
         Button buttonDecr = view.findViewById(R.id.buttonDecr);
+        //on click decrease
         buttonDecr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,13 +77,6 @@ public class FullMoviePageFragment extends BottomSheetDialogFragment {
                 }
             }
         });
-
-
-
-
-
         return view;
-
-
     }
 }
