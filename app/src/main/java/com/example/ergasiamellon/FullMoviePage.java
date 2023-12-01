@@ -31,6 +31,18 @@ public class FullMoviePage extends AppCompatActivity {
         binding.description.setText(movie.getTitle());
         Glide.with(this).load(movie.getImg_url()).into(binding.imageView);
 
+        binding.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                FullMoviePageFragment bottomSheetFragment = new FullMoviePageFragment();
+//                bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
+
+                FullMoviePageFragment bottomSheetFragment = FullMoviePageFragment.newInstance(movie);
+                bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
+
+            }
+        });
+
 
     }
     @Override
