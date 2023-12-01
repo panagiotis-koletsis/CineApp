@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -75,6 +76,17 @@ public class FullMoviePageFragment extends BottomSheetDialogFragment {
                     y = y - movie.getTicket_price();
                     textViewTotal.setText(String.valueOf(y));
                 }
+            }
+        });
+        //adds to basketMoviesList
+        Button buttonTicket = view.findViewById(R.id.buttonTicket);
+        buttonTicket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(),"ticket added to basket",Toast.LENGTH_SHORT).show();
+                int size = Integer.parseInt(String.valueOf(textViewNumber.getText()));
+                for(int u=0;u<size;u++)
+                    Reference.basketMovie.add(movie);
             }
         });
         return view;

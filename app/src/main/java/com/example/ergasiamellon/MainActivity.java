@@ -9,7 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.Button;
 
 import com.example.ergasiamellon.databinding.ActivityMainBinding;
 
@@ -48,6 +48,18 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
         setSupportActionBar(findViewById(R.id.toolbar));
         setTitle("Cine App");
 
+        Button testButton = binding.buttonTest;
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 //Handle the click on the icon
+
+                Intent intent = new Intent(MainActivity.this, BasketActivity.class);
+                //adding a serializable movie to pass to the ne activity
+                //intent.putExtra("movies", (Serializable) Reference.basketMovie);
+                startActivity(intent);
+            }
+        });
 
         recyclerView = findViewById(R.id.recyclerView);
         GetData getData = new GetData();
@@ -60,6 +72,26 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
+
+
+
+    //    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        onMenuItemSelected(R.id.action_basket);
+//        switch (item.getItemId()) {
+//            case :
+//                // Handle the click on the icon
+//                Intent intent = new Intent(this, BasketActivity.class);
+//                //adding a serializable movie to pass to the ne activity
+//                intent.putExtra("movies", (Serializable) Reference.basketMovie);
+//                startActivity(intent);
+//
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
     public void onTimeClicked(Movie movie) {
@@ -148,3 +180,8 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
         recyclerView.setAdapter(adaptery);
     }
 }
+class Reference {
+    public static List<Movie> basketMovie = new ArrayList<>();
+
+}
+

@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".FullMoviePage" />
+        <activity android:name=".BasketActivity" />
     </application>
 
 </manifest>

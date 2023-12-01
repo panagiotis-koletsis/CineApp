@@ -2,12 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_fav"
+        android:id="@+id/action_favourite"
         android:icon="@drawable/favorite"
         android:title="@string/favBox"
-        app:showAsAction="always"/>
+        app:showAsAction="always"
+        />
     <item
-        android:id="@+id/action_cart"
+        android:id="@+id/action_basket"
         android:icon="@drawable/ic_cart"
         android:title="@string/cartBox"
         app:showAsAction="always"/>
