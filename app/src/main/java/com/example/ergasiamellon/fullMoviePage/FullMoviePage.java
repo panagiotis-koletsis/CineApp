@@ -1,13 +1,21 @@
 package com.example.ergasiamellon.fullMoviePage;
 
+import static java.security.AccessController.getContext;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.ergasiamellon.Basket.BasketActivity;
+import com.example.ergasiamellon.MainActivity;
 import com.example.ergasiamellon.Movie;
 import com.example.ergasiamellon.R;
 import com.example.ergasiamellon.databinding.MovieItemFullBinding;
@@ -56,6 +64,14 @@ public class FullMoviePage extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.full_movie_view_menu, menu);
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        return super.onOptionsItemSelected(item);
+    }
+
     public String durationConverter(Movie movie){
         int duration ;
         int hours;
