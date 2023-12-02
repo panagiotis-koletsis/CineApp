@@ -19,6 +19,7 @@ import com.example.ergasiamellon.MainActivity;
 import com.example.ergasiamellon.Movie;
 import com.example.ergasiamellon.R;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class BasketActivity extends AppCompatActivity {
@@ -57,7 +58,11 @@ public class BasketActivity extends AppCompatActivity {
         putDataIntoRecyclerView();
 
         double sum = calculateSum(mainActivity.basketMovie);
-        textView.setText("Sum:"+sum+"€");
+        DecimalFormat df = new DecimalFormat("#.##");
+        String formattedY = df.format(sum);
+        formattedY = formattedY.replace(",",".");
+        //textViewTotal.setText(formattedY+"€");
+        textView.setText("Sum:"+formattedY+"€");
 
     }
 
