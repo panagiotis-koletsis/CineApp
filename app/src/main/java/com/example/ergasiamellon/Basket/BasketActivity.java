@@ -1,30 +1,19 @@
-package com.example.ergasiamellon;
-
-//import static com.example.ergasiamellon.Reference.basketMovie;
+package com.example.ergasiamellon.Basket;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ergasiamellon.databinding.ActivityMainBinding;
-
-import java.util.List;
+import com.example.ergasiamellon.R;
 
 public class BasketActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-//    private ActivityMainBinding binding;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        binding = ActivityMainBinding.inflate(getLayoutInflater());
-//        View view = binding.getRoot();
-//        setSupportActionBar(findViewById(R.id.recyclerViewBasket));
-//        setTitle("Basket");
 
         setContentView(R.layout.basket);
         //List<Movie> movies = (List<Movie>) getIntent().getSerializableExtra("movies");

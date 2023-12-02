@@ -1,6 +1,4 @@
-package com.example.ergasiamellon;
-
-//import static com.example.ergasiamellon.Reference.basketMovie;
+package com.example.ergasiamellon.Basket;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.ergasiamellon.MainActivity;
+import com.example.ergasiamellon.Movie;
+import com.example.ergasiamellon.R;
 
 import java.util.ArrayList;
 

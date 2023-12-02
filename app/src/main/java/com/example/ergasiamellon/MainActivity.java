@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.ergasiamellon.Basket.BasketActivity;
 import com.example.ergasiamellon.databinding.ActivityMainBinding;
 
 import org.json.JSONArray;
@@ -20,7 +21,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -30,12 +30,13 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements SelectListener{
 
     public static List<Movie> basketMovie = new ArrayList<>();
+    public static List<Movie> moviesList = new ArrayList<>();
 
     private static String JSON_URL = "https://movies-sizhfvf6la-uc.a.run.app/";
 
     private ActivityMainBinding binding;
     RecyclerView recyclerView;
-    List<Movie> moviesList =  new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,13 +58,13 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
                  //Handle the click on the icon
 
                 Intent intent = new Intent(MainActivity.this, BasketActivity.class);
-                //adding a serializable movie to pass to the ne activity
-                //intent.putExtra("movies", (Serializable) Reference.basketMovie);
                 startActivity(intent);
             }
         });
 
         recyclerView = findViewById(R.id.recyclerView);
+
+
         GetData getData = new GetData();
         getData.execute();
 

@@ -42,8 +42,6 @@ public class FullMoviePage extends AppCompatActivity {
 
             }
         });
-
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

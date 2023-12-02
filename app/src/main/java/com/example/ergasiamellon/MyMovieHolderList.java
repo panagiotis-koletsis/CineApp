@@ -6,11 +6,9 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ergasiamellon.databinding.MovieItemListBinding;
 
 //this class is for the data that appear on the initial recyclerView
 public class MyMovieHolderList extends RecyclerView.ViewHolder{

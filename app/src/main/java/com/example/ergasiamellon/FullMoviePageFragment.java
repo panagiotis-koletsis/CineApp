@@ -11,12 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.ergasiamellon.databinding.FullMoviePageFragmentButtonBinding;
-import com.example.ergasiamellon.databinding.MovieItemFullBinding;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class FullMoviePageFragment extends BottomSheetDialogFragment {
