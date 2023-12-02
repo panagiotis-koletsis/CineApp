@@ -18,6 +18,9 @@ public class Adaptery extends RecyclerView.Adapter<MyMovieHolderList> {
     private List<Movie> movieList;
     private SelectListener listener;
     private int duration ;
+    int hours;
+    int minutes;
+    String result;
 
     public Adaptery(Context mContext, List<Movie> movieList,SelectListener listener) {
         this.mContext = mContext;
@@ -39,8 +42,12 @@ public class Adaptery extends RecyclerView.Adapter<MyMovieHolderList> {
     public void onBindViewHolder(@NonNull MyMovieHolderList holder, int position) {
         //populate xml elements
         holder.title.setText(movieList.get(position).getTitle());
-
-        holder.text_length.setText(Integer.toString(movieList.get(position).getDuration()));
+        duration = movieList.get(position).getDuration();
+        hours = duration / 60;
+        minutes = duration % 60;
+        result =  hours+"h "+minutes+"m ";
+        holder.text_length.setText(result);
+        //holder.text_length.setText(Integer.toString(movieList.get(position).getDuration()));
         holder.movie_rating_bar.setRating(movieList.get(position).getRating());
 
         //using glide to fetch image from url
@@ -53,7 +60,6 @@ public class Adaptery extends RecyclerView.Adapter<MyMovieHolderList> {
             @Override
             public void onClick(View view) {
                 listener.onItemClicked(movieList.get(position));
-                //listener.onTimeClicked(movieList.get(position));
             }
         });
     }

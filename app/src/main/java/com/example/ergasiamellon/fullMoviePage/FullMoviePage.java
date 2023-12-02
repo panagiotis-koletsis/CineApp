@@ -13,6 +13,8 @@ import com.example.ergasiamellon.R;
 import com.example.ergasiamellon.databinding.MovieItemFullBinding;
 
 public class FullMoviePage extends AppCompatActivity {
+    String resultDuration;
+
 
     private MovieItemFullBinding binding;
     @Override
@@ -30,7 +32,9 @@ public class FullMoviePage extends AppCompatActivity {
         //populating elements with the movie
         binding.title.setText(movie.getTitle());
         binding.movieRatingBar.setRating(movie.getRating());
-        binding.textLength.setText(Integer.toString(movie.getDuration()));
+
+        binding.textLength.setText(durationConverter(movie));
+
         binding.description.setText(movie.getTitle());
         Glide.with(this).load(movie.getImg_url()).into(binding.imageView);
 
@@ -50,5 +54,17 @@ public class FullMoviePage extends AppCompatActivity {
         //adding icons on the toolbar
         getMenuInflater().inflate(R.menu.full_movie_view_menu, menu);
         return true;
+    }
+    public String durationConverter(Movie movie){
+        int duration ;
+        int hours;
+        int minutes;
+        String result;
+        duration = movie.getDuration();
+        hours = duration / 60;
+        minutes = duration % 60;
+        result =  hours+"h "+minutes+"m ";
+        return result;
+
     }
 }
