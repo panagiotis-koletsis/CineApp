@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        moviesList.clear();
 //        setContentView(R.layout.activity_main);
         //binding objects
         binding = ActivityMainBinding.inflate(getLayoutInflater());

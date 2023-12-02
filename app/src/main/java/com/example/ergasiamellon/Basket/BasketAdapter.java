@@ -38,7 +38,7 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketViewHolder>{
     public void onBindViewHolder(@NonNull BasketViewHolder holder, int position) {
 
         holder.textViewTitle.setText(basketMovie.get(position).getTitle());
-        holder.textViewTotal.setText(Double.toString((double) basketMovie.get(position).getTicket_price()));
+        holder.textViewTotal.setText(Double.toString((double) basketMovie.get(position).getTicket_price())+"€");
 
         //using glide to fetch image from url
         Glide.with(mContext)

@@ -6,6 +6,7 @@
         android:icon="@drawable/favorite"
         android:title="@string/favBox"
         app:showAsAction="always"
+
         />
     <item
         android:id="@+id/action_basket"

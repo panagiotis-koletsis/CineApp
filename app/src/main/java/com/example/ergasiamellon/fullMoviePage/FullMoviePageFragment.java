@@ -46,7 +46,10 @@ public class FullMoviePageFragment extends BottomSheetDialogFragment {
         textViewTitle.setText(movie.getTitle());
 
         TextView textViewTotal = view.findViewById(R.id.textViewTotal);
-        textViewTotal.setText(String.valueOf(movie.getTicket_price()));
+        String val = String.valueOf(movie.getTicket_price());
+        val = val+"€";
+        textViewTotal.setText(val);
+        //textViewTotal.setText(String.valueOf(movie.getTicket_price()));
 
         TextView textViewNumber = view.findViewById(R.id.textViewNumber);
 
@@ -60,14 +63,19 @@ public class FullMoviePageFragment extends BottomSheetDialogFragment {
                 x++;
                 textViewNumber.setText(String.valueOf(x));
 
+                String originalString = String.valueOf(textViewTotal.getText());
+                char charToRemove = '€';
+                String modifiedString = originalString.replace(String.valueOf(charToRemove), "");
+                double y = Double.parseDouble(modifiedString);
+
                 //price
-                double y = Double.parseDouble(String.valueOf(textViewTotal.getText()));
+                //double y = Double.parseDouble(String.valueOf(textViewTotal.getText()));
                 y=y+movie.getTicket_price();
 
                 DecimalFormat df1 = new DecimalFormat("#.##");
                 String formattedY = df1.format(y);
                 formattedY = formattedY.replace(",",".");
-                textViewTotal.setText(formattedY);
+                textViewTotal.setText(formattedY+"€");
                 //textViewTotal.setText(String.valueOf(y));
             }
         });
@@ -81,13 +89,17 @@ public class FullMoviePageFragment extends BottomSheetDialogFragment {
                     x--;
                     textViewNumber.setText(String.valueOf(x));
 
-                    double y = Double.parseDouble(String.valueOf(textViewTotal.getText()));
+                    String originalString = String.valueOf(textViewTotal.getText());
+                    char charToRemove = '€';
+                    String modifiedString = originalString.replace(String.valueOf(charToRemove), "");
+                    double y = Double.parseDouble(modifiedString);
+                    //double y = Double.parseDouble(String.valueOf(textViewTotal.getText()));
                     y = y - movie.getTicket_price();
 
                     DecimalFormat df = new DecimalFormat("#.##");
                     String formattedY = df.format(y);
                     formattedY = formattedY.replace(",",".");
-                    textViewTotal.setText(formattedY);
+                    textViewTotal.setText(formattedY+"€");
 
                     //textViewTotal.setText(String.valueOf(y));
                 }
