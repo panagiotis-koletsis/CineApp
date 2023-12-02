@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FullMoviePage" />
+        <activity android:name=".fullMoviePage.FullMoviePage" />
         <activity android:name=".Basket.BasketActivity" />
     </application>
 

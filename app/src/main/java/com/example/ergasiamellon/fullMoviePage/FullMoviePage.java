@@ -1,4 +1,4 @@
-package com.example.ergasiamellon;
+package com.example.ergasiamellon.fullMoviePage;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.ergasiamellon.Movie;
+import com.example.ergasiamellon.R;
 import com.example.ergasiamellon.databinding.MovieItemFullBinding;
 
 public class FullMoviePage extends AppCompatActivity {

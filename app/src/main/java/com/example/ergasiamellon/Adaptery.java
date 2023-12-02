@@ -50,7 +50,7 @@ public class Adaptery extends RecyclerView.Adapter<MyMovieHolderList> {
         holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onTimeClicked(movieList.get(position));
+                listener.onItemClicked(movieList.get(position));
             }
         });
     }

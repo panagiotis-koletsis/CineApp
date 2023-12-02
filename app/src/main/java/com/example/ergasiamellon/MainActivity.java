@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.example.ergasiamellon.Basket.BasketActivity;
 import com.example.ergasiamellon.databinding.ActivityMainBinding;
+import com.example.ergasiamellon.fullMoviePage.FullMoviePage;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -76,8 +77,6 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
         return true;
     }
 
-
-
     //    @Override
 //    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 //        onMenuItemSelected(R.id.action_basket);
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
 //    }
 
     @Override
-    public void onTimeClicked(Movie movie) {
+    public void onItemClicked(Movie movie) {
         //misspelled should be onItemClicked
         //Toast.makeText(this,movie.getTitle(),Toast.LENGTH_SHORT).show();
         //Starting new activity for the full movie page

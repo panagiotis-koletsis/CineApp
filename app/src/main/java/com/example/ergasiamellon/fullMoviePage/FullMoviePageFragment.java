@@ -1,6 +1,7 @@
-package com.example.ergasiamellon;
+package com.example.ergasiamellon.fullMoviePage;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.ergasiamellon.MainActivity;
+import com.example.ergasiamellon.Movie;
+import com.example.ergasiamellon.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class FullMoviePageFragment extends BottomSheetDialogFragment {
@@ -58,7 +63,12 @@ public class FullMoviePageFragment extends BottomSheetDialogFragment {
                 //price
                 double y = Double.parseDouble(String.valueOf(textViewTotal.getText()));
                 y=y+movie.getTicket_price();
-                textViewTotal.setText(String.valueOf(y));
+
+                DecimalFormat df1 = new DecimalFormat("#.##");
+                String formattedY = df1.format(y);
+                formattedY = formattedY.replace(",",".");
+                textViewTotal.setText(formattedY);
+                //textViewTotal.setText(String.valueOf(y));
             }
         });
         Button buttonDecr = view.findViewById(R.id.buttonDecr);
@@ -73,7 +83,13 @@ public class FullMoviePageFragment extends BottomSheetDialogFragment {
 
                     double y = Double.parseDouble(String.valueOf(textViewTotal.getText()));
                     y = y - movie.getTicket_price();
-                    textViewTotal.setText(String.valueOf(y));
+
+                    DecimalFormat df = new DecimalFormat("#.##");
+                    String formattedY = df.format(y);
+                    formattedY = formattedY.replace(",",".");
+                    textViewTotal.setText(formattedY);
+
+                    //textViewTotal.setText(String.valueOf(y));
                 }
             }
         });
