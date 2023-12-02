@@ -29,6 +29,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements SelectListener{
 
+    public static List<Movie> basketMovie = new ArrayList<>();
+
     private static String JSON_URL = "https://movies-sizhfvf6la-uc.a.run.app/";
 
     private ActivityMainBinding binding;
@@ -180,8 +182,5 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
         recyclerView.setAdapter(adaptery);
     }
 }
-class Reference {
-    public static List<Movie> basketMovie = new ArrayList<>();
 
-}
 

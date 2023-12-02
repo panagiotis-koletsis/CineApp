@@ -1,6 +1,6 @@
 package com.example.ergasiamellon;
 
-import static com.example.ergasiamellon.Reference.basketMovie;
+//import static com.example.ergasiamellon.Reference.basketMovie;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,7 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
+
 public class BasketAdapter extends RecyclerView.Adapter<BasketViewHolder>{
+    MainActivity mainActivity = new MainActivity();
+    ArrayList<Movie> basketMovie = (ArrayList<Movie>) MainActivity.basketMovie;
     Context mContext;
 
     public BasketAdapter(Context mContext) {
@@ -30,6 +34,7 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull BasketViewHolder holder, int position) {
+
         holder.textViewTitle.setText(basketMovie.get(position).getTitle());
         holder.textViewTotal.setText(Integer.toString((int) basketMovie.get(position).getTicket_price()));
 

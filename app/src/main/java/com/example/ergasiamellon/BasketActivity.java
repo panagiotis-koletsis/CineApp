@@ -1,6 +1,6 @@
 package com.example.ergasiamellon;
 
-import static com.example.ergasiamellon.Reference.basketMovie;
+//import static com.example.ergasiamellon.Reference.basketMovie;
 
 import android.os.Bundle;
 import android.view.Menu;

@@ -17,8 +17,11 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class FullMoviePageFragment extends BottomSheetDialogFragment {
+    MainActivity mainActivity = new MainActivity();
+    ArrayList<Movie> basketMovie = (ArrayList<Movie>) MainActivity.basketMovie;
 
     public static FullMoviePageFragment newInstance(Movie movie) {
         FullMoviePageFragment fragment = new FullMoviePageFragment();
@@ -86,7 +89,7 @@ public class FullMoviePageFragment extends BottomSheetDialogFragment {
                 Toast.makeText(getContext(),"ticket added to basket",Toast.LENGTH_SHORT).show();
                 int size = Integer.parseInt(String.valueOf(textViewNumber.getText()));
                 for(int u=0;u<size;u++)
-                    Reference.basketMovie.add(movie);
+                    basketMovie.add(movie);
             }
         });
         return view;
