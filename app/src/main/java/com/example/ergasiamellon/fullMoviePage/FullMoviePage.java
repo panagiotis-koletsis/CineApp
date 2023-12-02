@@ -28,6 +28,7 @@ public class FullMoviePage extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(findViewById(R.id.toolbar));
+        setTitle("Movie");
 
         //populating elements with the movie
         binding.title.setText(movie.getTitle());

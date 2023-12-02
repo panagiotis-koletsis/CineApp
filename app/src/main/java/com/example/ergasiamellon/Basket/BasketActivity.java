@@ -1,6 +1,7 @@
 package com.example.ergasiamellon.Basket;
 
 import android.os.Bundle;
+import android.view.Menu;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +20,9 @@ public class BasketActivity extends AppCompatActivity {
         //List<Movie> movies = (List<Movie>) getIntent().getSerializableExtra("movies");
         recyclerView = findViewById(R.id.recyclerViewBasket);
 
+        setSupportActionBar(findViewById(R.id.toolbar));
+        setTitle("Basket");
+
         putDataIntoRecyclerView();
 
     }
@@ -26,6 +30,12 @@ public class BasketActivity extends AppCompatActivity {
         BasketAdapter basketAdapter = new BasketAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(basketAdapter);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //adding icons on the toolbar
+        getMenuInflater().inflate(R.menu.full_movie_view_menu, menu);
+        return true;
     }
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
