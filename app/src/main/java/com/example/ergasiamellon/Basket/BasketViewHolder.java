@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ergasiamellon.R;
-
+//Basket list
 public class BasketViewHolder extends RecyclerView.ViewHolder{
     ImageView imageView;
     TextView textViewTitle;

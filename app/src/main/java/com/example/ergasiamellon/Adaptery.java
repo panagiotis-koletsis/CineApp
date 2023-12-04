@@ -42,6 +42,7 @@ public class Adaptery extends RecyclerView.Adapter<MyMovieHolderList> {
     public void onBindViewHolder(@NonNull MyMovieHolderList holder, int position) {
         //populate xml elements
         holder.title.setText(movieList.get(position).getTitle());
+        //format duration
         duration = movieList.get(position).getDuration();
         hours = duration / 60;
         minutes = duration % 60;

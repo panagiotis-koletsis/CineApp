@@ -17,7 +17,6 @@ import java.util.ArrayList;
 
 public class BasketAdapter extends RecyclerView.Adapter<BasketViewHolder>{
     //for accessing static arraylist with the movies added to basket
-    MainActivity mainActivity = new MainActivity();
     ArrayList<Movie> basketMovie = (ArrayList<Movie>) MainActivity.basketMovie;
     Context mContext;
 

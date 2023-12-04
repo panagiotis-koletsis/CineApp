@@ -80,8 +80,9 @@ public class BasketActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, MainActivity.class);
+//        startActivity(intent);
+        onBackPressed();
         return super.onOptionsItemSelected(item);
     }
     public double calculateSum(List<Movie> basketMovie){

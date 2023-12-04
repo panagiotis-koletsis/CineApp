@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements SelectListener{
-
+    //static arraylist for having movies lists
     public static List<Movie> basketMovie = new ArrayList<>();
     public static List<Movie> moviesList = new ArrayList<>();
 
@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        moviesList.clear();
 //        setContentView(R.layout.activity_main);
         //binding objects
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -61,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
         GetData getData = new GetData();
         getData.execute();
 
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        //click on buttons on menu
         if(item.getItemId()== R.id.action_basket){
             Intent intent = new Intent(this, BasketActivity.class);
             startActivity(intent);
@@ -82,8 +84,6 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
 
     @Override
     public void onItemClicked(Movie movie) {
-        //misspelled should be onItemClicked
-        //Toast.makeText(this,movie.getTitle(),Toast.LENGTH_SHORT).show();
         //Starting new activity for the full movie page
         Intent intent = new Intent(this, FullMoviePage.class);
         //adding a serializable movie to pass to the ne activity
