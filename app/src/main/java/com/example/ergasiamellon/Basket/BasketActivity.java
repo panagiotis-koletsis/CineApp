@@ -37,6 +37,7 @@ public class BasketActivity extends AppCompatActivity {
         setSupportActionBar(findViewById(R.id.toolbar));
         setTitle("Basket");
 
+        //Button buy on basket
         Button buttonBuy = findViewById(R.id.ButtonBuy);
         buttonBuy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +45,7 @@ public class BasketActivity extends AppCompatActivity {
                 Toast.makeText(BasketActivity.this, "Buy", Toast.LENGTH_SHORT).show();
             }
         });
+        //button clear on basket
         Button buttonClear = findViewById(R.id.ButtonClear);
         TextView textView = findViewById(R.id.TextSum);
         buttonClear.setOnClickListener(new View.OnClickListener() {
@@ -57,11 +59,11 @@ public class BasketActivity extends AppCompatActivity {
 
         putDataIntoRecyclerView();
 
+        //formatting 2 decimals
         double sum = calculateSum(mainActivity.basketMovie);
         DecimalFormat df = new DecimalFormat("#.##");
         String formattedY = df.format(sum);
         formattedY = formattedY.replace(",",".");
-        //textViewTotal.setText(formattedY+"€");
         textView.setText("Sum:"+formattedY+"€");
 
     }
@@ -80,11 +82,11 @@ public class BasketActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        Intent intent = new Intent(this, MainActivity.class);
-//        startActivity(intent);
+        //back button functionality
         onBackPressed();
         return super.onOptionsItemSelected(item);
     }
+    //calculate price on basket
     public double calculateSum(List<Movie> basketMovie){
         double sum =0;
         for (int i=0;i<basketMovie.size();i++){
