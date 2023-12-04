@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener{
                     movie.setDuration(jsonObject1.getInt("duration"));
                     movie.setRating(jsonObject1.getInt("rating"));
                     movie.setTicket_price(jsonObject1.getDouble("ticket_price"));
+                    movie.setDescription(jsonObject1.getString("description"));
 
                     moviesList.add(movie);
                 }

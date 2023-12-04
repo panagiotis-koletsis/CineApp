@@ -42,7 +42,7 @@ public class FullMoviePage extends AppCompatActivity {
 
         binding.textLength.setText(durationConverter(movie));
 
-        binding.description.setText(movie.getTitle());
+        binding.description.setText(movie.getDescription());
         Glide.with(this).load(movie.getImg_url()).into(binding.imageView);
 
         binding.button.setOnClickListener(new View.OnClickListener() {

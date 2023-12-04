@@ -10,6 +10,15 @@ public class Movie implements Serializable {
     private int duration;
     private int rating;
     private double ticket_price;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Movie(int id, String title, String img_url, int duration, int rating, double ticket_price) {
         this.id = id;
